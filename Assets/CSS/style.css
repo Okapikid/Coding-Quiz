@@ -1,0 +1,60 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+    background-color: aqua;
+    margin: 0em;
+    padding: 0em 2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 5;
+    background-color: blanchedalmond;
+    height: 70vh;
+    width: 50vw;
+    margin: auto;
+}
+
+.container h1 {
+    margin: 1vw 10vw;
+}
+
+
+.container p {
+    margin: 1vw 10vw;
+}
+
+.container button {
+    margin: 10px;
+}
+
+button {
+    background-color: aqua;
+}
+
+.questionBox {
+    visibility: hidden;
+
+}
+
+.questionBox button{
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    border-radius: 10px;
+    width: 15em;
+    height: 3em;
+}
