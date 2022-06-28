@@ -7,21 +7,26 @@ var currentQuestion;
 var questionEl = document.getElementById("question");
 var answerEl = document.getElementById("answers");
 var judgmentEl = document.getElementById("judgment");
-
+var pointsEl = document.getElementById("points")
+var points = 0;
 
 function countdown() {
     setInterval(function() {
-        if (timeLeft > -1) {
+        if (timeLeft > 0) {
             timerEl.textContent = "Time: " + timeLeft;
             timeLeft--
         } else {
+            clearInterval(timeLeft);
             document.getElementById("complete").style.opacity = "100%";
             document.getElementById("questionBox").style.visibility = "hidden";
+            document.getElementById("finalScore").textContent = points;
+            document.getElementById("points").textContent = points;
         }
     }, 1000)
 }
 
 function startQuiz() {
+    localStorage.removeItem(points);
     countdown();
     document.getElementById("startButtonId").style.display = "none";
     document.getElementById("CQC").style.display = "none";
@@ -37,6 +42,7 @@ function nextQuestion() {
 }
 
 function newQuestion(question) {
+    randomQuestion = questions.sort(() => Math.random() -0.5);
     questionEl.innerText = question.question;
     question.answers.forEach(answer => {
         var button = document.createElement("button");
@@ -55,10 +61,13 @@ function answerChosen(e) {
     var chosenButton = e.target;
     if (chosenButton.dataset.correct) {
         judgmentEl.innerText = "Correct!";
+        points++;
+        pointsEl.textContent = points;
     } else {
         judgmentEl.innerText = "Wrong!"
         timeLeft -= 15;
     }
+    answerEl.textContent = "";
     nextQuestion();
 }
 
