@@ -50,6 +50,12 @@ button {
 
 }
 
+.question {
+    font-size: larger;
+    font-weight: 800;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .questionBox button{
     display: flex;
     flex-direction: column;
