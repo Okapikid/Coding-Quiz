@@ -47,7 +47,6 @@ button {
 
 .questionBox {
     visibility: hidden;
-
 }
 
 .question {
@@ -63,4 +62,15 @@ button {
     border-radius: 10px;
     width: 15em;
     height: 3em;
+}
+
+#complete {
+    opacity: 0;
+}
+
+.judgment {
+    font-size: xx-large;
+    font-weight: 800;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(67, 32, 148);
 }
