@@ -9,7 +9,7 @@
 </head>
 <body>
         <div class="topBar">
-            <p><a href="#">View high scores</a></p>
+            <p><a href="./leaderboard.html">View high scores</a></p>
             <p>Current score: <span id="points">0</span></p>
             <p id="timer">Time: 75</p>
         </div>
@@ -17,6 +17,10 @@
             <div id="complete">
                 <h1>All done!</h1>
                 <p>Your final score is <span id="finalScore">0</span></p>
+                <form>
+                    <input type="text" class="form-input w-100" id="initials" placeholder="Enter your initials:" />
+                    <button id="submitButtonId">Submit</button>
+                  </form>
             </div>
             <div id="CQC">
                 <h1>Coding Quiz Challenge</h1>
@@ -26,7 +30,7 @@
                 Keep in mind that incorrect answers will penalize your score/time by 10 seconds</p>
             </div>
             <div>
-                <button id="startButtonId" class="startButtonClass">Start quiz</button>
+                <button class="startButtonClass button" id="startButtonId">Start quiz</button>
             </div>
             <div class="questionBox" id="questionBox">
                 <div class="question" id="question">Question 1</div>

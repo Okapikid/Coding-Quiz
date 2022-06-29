@@ -2,6 +2,8 @@ timerEl = document.getElementById("timer");
 var timeLeft = 75;
 var startButtonClick = document.getElementById("startButtonId");
 startButtonClick.addEventListener("click", startQuiz);
+var submitButtonClick = document.getElementById("submitButtonId");
+submitButtonClick.addEventListener("click", goToLeaderboard);
 var randomQuestion;
 var currentQuestion;
 var questionEl = document.getElementById("question");
@@ -9,6 +11,8 @@ var answerEl = document.getElementById("answers");
 var judgmentEl = document.getElementById("judgment");
 var pointsEl = document.getElementById("points")
 var points = 0;
+var highScoresEl = document.getElementById("highScores");
+
 
 function countdown() {
     setInterval(function() {
@@ -71,23 +75,28 @@ function answerChosen(e) {
     nextQuestion();
 }
 
+function goToLeaderboard() {
+    event.preventDefault();
+    window.location = "leaderboard.html";
+}
+
 var questions =  [
     { 
     question: "Commonly used data types DO NOT include _____",
     answers: [
-        {text: "1. strings", correct: false},
-        {text: "2. booleans", correct: false},
-        {text: "3. alerts", correct: true},
-        {text: "4. numbers", correct: false},
+        {text: "1. Strings", correct: false},
+        {text: "2. Booleans", correct: false},
+        {text: "3. Alerts", correct: true},
+        {text: "4. Numbers", correct: false},
         ]
     },
     { 
     question: "The condition in an if/else statement is enclosed with _____",
     answers: [
-        {text: "1. quotes", correct: false},
-        {text: "2. curly brackets", correct: false},
-        {text: "3. parentheses", correct: true},
-        {text: "4. square brackets", correct: false},
+        {text: "1. Quotes", correct: false},
+        {text: "2. Curly brackets", correct: false},
+        {text: "3. Parentheses", correct: true},
+        {text: "4. Square brackets", correct: false},
         ]
     },
     { 
