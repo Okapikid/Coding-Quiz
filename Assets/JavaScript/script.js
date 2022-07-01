@@ -1,9 +1,6 @@
 timerEl = document.getElementById("timer");
 var timeLeft = 75;
-var startButtonClick = document.getElementById("startButtonId");
-startButtonClick.addEventListener("click", startQuiz);
-var submitButtonClick = document.getElementById("submitButtonId");
-submitButtonClick.addEventListener("click", goToLeaderboard);
+var startButtonClick = document.querySelector("#startButtonId");
 var randomQuestion;
 var currentQuestion;
 var questionEl = document.getElementById("question");
@@ -12,24 +9,30 @@ var judgmentEl = document.getElementById("judgment");
 var pointsEl = document.getElementById("points")
 var points = 0;
 var highScoresEl = document.getElementById("highScores");
+var scoresEl = document.getElementById("scores");
+var finalScore = document.getElementById("finalScore");
+var submitButtonClick = document.querySelector("#submitButtonId");
+var nomen = document.getElementById("initials");
+var leaderboardArray = [];
 
 
 function countdown() {
-    setInterval(function() {
+    var intervalId = setInterval(function() {
         if (timeLeft > 0) {
-            timerEl.textContent = "Time: " + timeLeft;
             timeLeft--
         } else {
-            clearInterval(timeLeft);
+            clearInterval(intervalId);
             document.getElementById("complete").style.opacity = "100%";
             document.getElementById("questionBox").style.visibility = "hidden";
             document.getElementById("finalScore").textContent = points;
             document.getElementById("points").textContent = points;
+            timeLeft = 0;
         }
+        timerEl.textContent = "Time: " + timeLeft;
     }, 1000)
-}
+};
 
-function startQuiz() {
+startButtonClick.addEventListener("click", function() {
     localStorage.removeItem(points);
     countdown();
     document.getElementById("startButtonId").style.display = "none";
@@ -39,11 +42,11 @@ function startQuiz() {
     currentQuestion = 0;
     randomQuestion = questions.sort(() => Math.random() -0.5);
     nextQuestion();
-}
+});
 
 function nextQuestion() {
     newQuestion(randomQuestion[currentQuestion]);
-}
+};
 
 function newQuestion(question) {
     randomQuestion = questions.sort(() => Math.random() -0.5);
@@ -58,7 +61,7 @@ function newQuestion(question) {
         button.addEventListener("click", answerChosen);
         answerEl.appendChild(button);
     }) 
-}
+};
 
 
 function answerChosen(e) {
@@ -73,12 +76,20 @@ function answerChosen(e) {
     }
     answerEl.textContent = "";
     nextQuestion();
-}
+};
 
-function goToLeaderboard() {
+submitButtonClick.addEventListener("click", function () {
     event.preventDefault();
+    var display= {
+        points: points,
+        inits: initials
+      };    
+    display.inits = document.getElementById("initials").value;
+    display.numbs = document.getElementById("points").values;
+    localStorage.setItem("display", JSON.stringify(display));
     window.location = "leaderboard.html";
-}
+  });
+
 
 var questions =  [
     { 
@@ -126,4 +137,13 @@ var questions =  [
         {text: "4. Console.log", correct: true},
         ]
     },
-]
+    { 
+        question: "Who is, without a doubt, the greatest TA?",
+        answers: [
+            {text: "1. Donnie Cook", correct: false},
+            {text: "2. Travis Cook", correct: false},
+            {text: "3. Mary Prince", correct: false},
+            {text: "4. All of the above", correct: true},
+            ]
+        }
+];

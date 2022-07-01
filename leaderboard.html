@@ -9,11 +9,17 @@
 </head>
 <body>
     <div class="high-scores">
-        <h1>High scores</h1>
-        <form input=""text">TEST</form>
-        <button class="leaderboardButton" href="./leaderboard.html">Go back</button>
-        <button class="leaderboardButton" id="clear">Clear high scores</button>
+        <h1>High scores</h1><br>
+        <div class="break"></div>
+        <div class="scores">
+            <ul id="immortals">
+
+            </ul>
+        </div>
+        <div class="break"></div>
+        <a href="./index.html"><button class="leaderboardButton">Go back</button></a>
+        <button class="leaderboardButton" id="clear" onclick="window.localStorage.clear();">Clear high scores</button>
     </div>
-    <script src="./Assets/JavaScript/script.js"></script>
+    <script src="./Assets/JavaScript/scriptLeaderboard.js"></script>
 </body>
 </html>
