@@ -14,6 +14,8 @@ var finalScore = document.getElementById("finalScore");
 var submitButtonClick = document.querySelector("#submitButtonId");
 var nomen = document.getElementById("initials");
 var leaderboardArray = [];
+var display = JSON.parse(localStorage.getItem("display")) || [];
+
 
 
 function countdown() {
@@ -80,7 +82,7 @@ function answerChosen(e) {
 
 submitButtonClick.addEventListener("click", function () {
     event.preventDefault();
-    var display= {
+    var display = {
         points: points,
         inits: initials
       };    
