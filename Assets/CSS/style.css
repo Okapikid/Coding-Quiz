@@ -1,3 +1,4 @@
+/* class-level elements */
 .body {
     display: flex;
     flex-direction: column;
@@ -65,14 +66,14 @@
     border-radius: 5px;
 }
 
-.questionBox {
-    visibility: hidden;
-}
-
 .question {
     font-size: larger;
     font-weight: 800;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.questionBox {
+    visibility: hidden;
 }
 
 .questionBox button{
@@ -82,11 +83,6 @@
     border-radius: 10px;
     width: 15em;
     height: 3em;
-}
-
-#complete {
-    opacity: 0;
-    text-align: center;
 }
 
 .judgment {
@@ -110,11 +106,6 @@
     flex-basis: 100%;
 }
 
-.break {
-    flex-basis: 100%;
-    height: 0;
-  }
-
 .high-scores button {
     width: 30%;
     display: inline;
@@ -123,6 +114,11 @@
 .high-scores ul {
     list-style: none;
 }
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }
 
 .leaderboardButton {
     display: flex;
@@ -133,4 +129,10 @@
     cursor: pointer;
     font-size: 1em;
     color: white;
+}
+
+/* id level elements */
+#complete {
+    opacity: 0;
+    text-align: center;
 }
